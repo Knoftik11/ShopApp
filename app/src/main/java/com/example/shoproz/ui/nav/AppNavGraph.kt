@@ -24,6 +24,7 @@ import androidx.navigation.navArgument
 import com.example.shoproz.data.repo.AuthRepository
 import com.example.shoproz.ui.auth.LoginScreen
 import com.example.shoproz.ui.auth.RegisterScreen
+import com.example.shoproz.ui.catalog.CatalogScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -91,7 +92,11 @@ fun AppNavGraph() {
                 )
             }
             composable(Routes.CATALOG) {
-                Text("Каталог — заглушка")
+                CatalogScreen(
+                    onProductClick = { id ->
+                        navController.navigate(Routes.product(id))
+                    }
+                )
             }
             composable(
                 route = Routes.PRODUCT,
