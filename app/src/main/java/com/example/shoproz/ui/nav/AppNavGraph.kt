@@ -24,6 +24,8 @@ import androidx.navigation.navArgument
 import com.example.shoproz.data.repo.AuthRepository
 import com.example.shoproz.ui.auth.LoginScreen
 import com.example.shoproz.ui.auth.RegisterScreen
+import com.example.shoproz.ui.cart.CartScreen
+import com.example.shoproz.ui.cart.CheckoutScreen
 import com.example.shoproz.ui.catalog.CatalogScreen
 import com.example.shoproz.ui.product.ProductDetailScreen
 import org.koin.compose.koinInject
@@ -110,10 +112,14 @@ fun AppNavGraph() {
                 )
             }
             composable(Routes.CART) {
-                Text("Корзина — заглушка")
+                CartScreen(onCheckout = { navController.navigate(Routes.CHECKOUT) })
             }
             composable(Routes.CHECKOUT) {
-                Text("Оформление — заглушка")
+                CheckoutScreen(onPlaced = {
+                    navController.navigate(Routes.ORDERS) {
+                        popUpTo(Routes.CATALOG)
+                    }
+                })
             }
             composable(Routes.ORDERS) {
                 Text("Мои заказы — заглушка")
