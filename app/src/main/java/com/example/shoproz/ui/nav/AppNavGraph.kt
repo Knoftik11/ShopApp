@@ -3,9 +3,10 @@ package com.example.shoproz.ui.nav
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -138,8 +139,8 @@ fun AppNavGraph() {
 }
 
 private enum class BottomTab(val route: String, val label: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
-    CATALOG(Routes.CATALOG, "Каталог", Icons.Filled.Star),
+    CATALOG(Routes.CATALOG, "Каталог", Icons.Filled.Search),
     CART(Routes.CART, "Корзина", Icons.Filled.ShoppingCart),
-    ORDERS(Routes.ORDERS, "Заказы", Icons.Filled.Star),
+    ORDERS(Routes.ORDERS, "Заказы", Icons.AutoMirrored.Filled.List),
     PROFILE(Routes.PROFILE, "Профиль", Icons.Filled.Person);
 }
