@@ -13,6 +13,7 @@ import com.example.shoproz.data.repo.ProductRepository
 import com.example.shoproz.ui.auth.AuthViewModel
 import com.example.shoproz.ui.cart.CartViewModel
 import com.example.shoproz.ui.catalog.CatalogViewModel
+import com.example.shoproz.ui.orders.OrdersViewModel
 import com.example.shoproz.ui.product.ProductDetailViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
@@ -36,4 +37,5 @@ val appModule = module {
     viewModel { CatalogViewModel(get()) }
     viewModel { ProductDetailViewModel(get(), get()) }
     viewModel { CartViewModel(get(), get()) }
+    viewModel { OrdersViewModel(get()) }
 }

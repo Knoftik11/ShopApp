@@ -27,6 +27,7 @@ import com.example.shoproz.ui.auth.RegisterScreen
 import com.example.shoproz.ui.cart.CartScreen
 import com.example.shoproz.ui.cart.CheckoutScreen
 import com.example.shoproz.ui.catalog.CatalogScreen
+import com.example.shoproz.ui.orders.OrdersScreen
 import com.example.shoproz.ui.product.ProductDetailScreen
 import org.koin.compose.koinInject
 
@@ -122,7 +123,7 @@ fun AppNavGraph() {
                 })
             }
             composable(Routes.ORDERS) {
-                Text("Мои заказы — заглушка")
+                OrdersScreen()
             }
             composable(Routes.PROFILE) {
                 Text("Профиль — заглушка")
