@@ -25,6 +25,7 @@ import com.example.shoproz.data.repo.AuthRepository
 import com.example.shoproz.ui.auth.LoginScreen
 import com.example.shoproz.ui.auth.RegisterScreen
 import com.example.shoproz.ui.catalog.CatalogScreen
+import com.example.shoproz.ui.product.ProductDetailScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -103,7 +104,10 @@ fun AppNavGraph() {
                 arguments = listOf(navArgument("id") { type = NavType.IntType })
             ) { entry ->
                 val id = entry.arguments?.getInt("id") ?: 0
-                Text("Товар #$id — заглушка")
+                ProductDetailScreen(
+                    productId = id,
+                    onCartClick = { navController.navigate(Routes.CART) }
+                )
             }
             composable(Routes.CART) {
                 Text("Корзина — заглушка")
