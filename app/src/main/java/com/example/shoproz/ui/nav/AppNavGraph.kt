@@ -23,6 +23,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.shoproz.data.repo.AuthRepository
 import com.example.shoproz.ui.auth.LoginScreen
+import com.example.shoproz.ui.auth.RegisterScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -80,7 +81,14 @@ fun AppNavGraph() {
                 )
             }
             composable(Routes.REGISTER) {
-                Text("Регистрация — заглушка")
+                RegisterScreen(
+                    onRegistered = {
+                        navController.navigate(Routes.CATALOG) {
+                            popUpTo(Routes.LOGIN) { inclusive = true }
+                        }
+                    },
+                    onGoLogin = { navController.popBackStack() }
+                )
             }
             composable(Routes.CATALOG) {
                 Text("Каталог — заглушка")
