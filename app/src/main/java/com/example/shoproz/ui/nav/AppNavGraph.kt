@@ -22,6 +22,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.shoproz.data.repo.AuthRepository
+import com.example.shoproz.ui.auth.LoginScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -69,7 +70,14 @@ fun AppNavGraph() {
                 .padding(padding)
         ) {
             composable(Routes.LOGIN) {
-                Text("Логин — заглушка")
+                LoginScreen(
+                    onLoggedIn = {
+                        navController.navigate(Routes.CATALOG) {
+                            popUpTo(Routes.LOGIN) { inclusive = true }
+                        }
+                    },
+                    onGoRegister = { navController.navigate(Routes.REGISTER) }
+                )
             }
             composable(Routes.REGISTER) {
                 Text("Регистрация — заглушка")
